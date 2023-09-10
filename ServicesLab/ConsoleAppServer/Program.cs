@@ -22,29 +22,40 @@ internal class Program
 
             while (true)
             {
-                var handler = await listener.AcceptAsync();
-
-                var data = default(string);
-                while (true)
+                var handler = default(Socket);
+                try
                 {
-                    var bytes = new byte[1024];
-                    int bytesRec = await handler.ReceiveAsync(bytes);
-                    data += Encoding.UTF8.GetString(bytes, 0, bytesRec);
-                    if (data.Contains("<TheEnd>") || handler.Available == 0)
+                    handler = await listener.AcceptAsync();
+
+                    var data = default(string);
+                    while (true)
                     {
-                        break;
+                        var bytes = new byte[1024];
+                        int bytesRec = await handler.ReceiveAsync(bytes);
+                        data += Encoding.UTF8.GetString(bytes, 0, bytesRec);
+                        if (data.Contains("<TheEnd>") || handler.Available == 0)
+                        {
+                            break;
+                        }
                     }
+
+                    Console.WriteLine($"Получен текст: {data}");
+
+                    var reply = "Ответный текст с сервера о приеме информации";
+                    var bytes2 = Encoding.UTF8.GetBytes(reply);
+
+                    await handler.SendAsync(bytes2);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+                finally
+                {
+                    handler?.Shutdown(SocketShutdown.Both);
+                    handler?.Close();
                 }
 
-                Console.WriteLine($"Получен текст: {data}");
-
-                var reply = "Ответный текст о примене информации";
-                var bytes2 = Encoding.UTF8.GetBytes(reply);
-
-                await handler.SendAsync(bytes2);
-
-                handler.Shutdown(SocketShutdown.Both);
-                handler.Close();
             }
 
         }

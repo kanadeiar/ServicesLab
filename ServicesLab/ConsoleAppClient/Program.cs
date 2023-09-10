@@ -27,7 +27,7 @@ internal class Program
             await sender.SendAsync(bytesSend);
             await sender.ReceiveAsync(bytes);
 
-            Console.WriteLine($"Сервер ответил: {Encoding.UTF8.GetString(bytesSend)}");
+            Console.WriteLine($"Сервер ответил: {Encoding.UTF8.GetString(bytes)}");
         }
         catch (Exception e)
         {
