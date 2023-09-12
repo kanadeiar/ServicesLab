@@ -5,9 +5,11 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{64642509-7DF5-46C1-BDD7-826520B94A5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppServer", "ConsoleAppServer\ConsoleAppServer.csproj", "{49CB8BB6-7B0E-43DA-A7CA-F45534576036}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppServer", "ConsoleAppServer\ConsoleAppServer.csproj", "{49CB8BB6-7B0E-43DA-A7CA-F45534576036}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppClient", "ConsoleAppClient\ConsoleAppClient.csproj", "{44A4A5A2-BDEB-4645-B7C1-B110897CC143}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppClient", "ConsoleAppClient\ConsoleAppClient.csproj", "{44A4A5A2-BDEB-4645-B7C1-B110897CC143}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedLibrary", "SharedLibrary\SharedLibrary.csproj", "{221C0E96-99E9-4249-AFD6-4A6C79A88212}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{44A4A5A2-BDEB-4645-B7C1-B110897CC143}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44A4A5A2-BDEB-4645-B7C1-B110897CC143}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44A4A5A2-BDEB-4645-B7C1-B110897CC143}.Release|Any CPU.Build.0 = Release|Any CPU
+		{221C0E96-99E9-4249-AFD6-4A6C79A88212}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{221C0E96-99E9-4249-AFD6-4A6C79A88212}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{221C0E96-99E9-4249-AFD6-4A6C79A88212}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{221C0E96-99E9-4249-AFD6-4A6C79A88212}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

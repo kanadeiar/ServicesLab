@@ -10,6 +10,7 @@ internal class Program
     {
         Console.WriteLine("Серверное приложение");
 
+        
 
         Console.WriteLine("Нажать любую кнопку для завершения работы ...");
         Console.ReadKey();
