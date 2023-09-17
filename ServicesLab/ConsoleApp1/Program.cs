@@ -1,23 +1,28 @@
-﻿using System;
-using System.IO;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿namespace ConsoleApp1;
 
-namespace ConsoleApp1
+internal class Program
 {
-    internal class Program
+    static void Main(string[] args)
     {
-        static async Task Main(string[] args)
+        Console.WriteLine("Опытное приложение");
+
+        //var customerRepository = new Repository<Customer>();
+        var customerRepository = DynamicProxy<IRepository<Customer>>.Decorate(new Repository<Customer>());
+        
+        var customer = new Customer
         {
-            Console.WriteLine("Лаборатория по разработке сервисных приложений");
+            Id = 1,
+            Name = "Customer 1",
+            Address = "Address 1"
+        };
+        customerRepository.Add(customer);
+        customerRepository.Update(customer);
+        customerRepository.Delete(customer);
+        var elems = customerRepository.GetAll();
+        var one = customerRepository.GetById(1);
 
 
-
-            Console.WriteLine("Нажать любую кнопку для завершения работы ...");
-            Console.ReadKey();
-        }
+        Console.WriteLine("Нажать любую кнопку для завершения работы ...");
+        Console.ReadKey();
     }
 }
